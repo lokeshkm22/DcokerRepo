@@ -1,0 +1,60 @@
+Day 1:
+
+docs.dcoker.com  -official website for docker
+
+Why docker:
+- to remove os dependency
+- to remove version dependency
+- performance will be high
+- build once deploy anywhere
+
+Prerequisites:
+
+- Linux command
+- linux default package yum
+- ubuntu deafault package apt-get
+
+infrastructure-->OS-->conatiner engine
+
+AmazonEc2-->ubuntu-->Docker
+
+1.apt-get update-->update the default package
+2.Install Docker-->apt-get docker -y ---> or sudo snap install docker
+3.Docker --version docker# version 19.03.13, or
+
+4 key terms:
+	1.Docker file--- it contains the information about to run the container(base image/os, dependency, port number,start the application)
+	2.Docker image--- if we build the docker file we will get the docker image = AMI
+	3.Docker container--- If we run dcoker image we will get docker container = EC2
+	4.Docker hub--- central repository, where we can get public docker images as well we can store our own private images
+
+Launch container: L1 activity in Docker
+
+
+1.docker pull httpd -- install apache container
+2.docker images ---to check the images
+3.docker run -itd --name myapache -p "8080:80" httpd -->launch container, itd interactive terminal detached .-p publish
+4.docker ps --to check whether the container is launched ps will show active container ps -a will show all container
+5.docker exec -it  containerId /bin/bash --->to login to the container as a shell
+6.docker stop containerid
+7.docker start containerid
+8.docker rm containerid --->to remove stopped container docker rm -f containerid ---to stop the running conatiner
+9.docker rmi imageid ---to remove image
+10.docker logs containerid ---to check the activity in container
+11.docker top containerid ---to check the process in container interview qn
+12.docker stats containerid ---to check the cpu memory nw utilization	
+13.docker inspect containerid ----to check container completeimformation interview qn --how to get container port
+14.docker info ---to check the docker machine
+
+
+docker pull mcr.microsoft.com/windows/servercore/iis 
+
+Using default tag: latest
+latest: Pulling from windows/servercore/iis
+no matching manifest for linux/amd64 in the manifest list entries
+root@ip-172-31-35-6:~#
+ 
+because based image is linux flavour so we can't install windows server in ubuntu machine 
+
+portainer---GUI paid not in use
+kitematic ---GUI support paid one
